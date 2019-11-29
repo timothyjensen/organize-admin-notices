@@ -13,7 +13,7 @@
 			return;
 		}
 
-		$('.organize-admin-notices').prepend('<button type="button" class="button toggle" data-notice-count="' + notices.length + '">Toggle Notices</button>');
+		$('.organize-admin-notices').prepend('<button type="button" class="button toggle" data-notice-count="' + notices.length + '">Toggle Notices</button><div class="clear"></div>');
 
 		$('.organize-admin-notices > button.toggle').on('click', function() {
 			$('.organize-admin-notices').toggleClass('active');
