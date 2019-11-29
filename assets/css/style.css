@@ -1,0 +1,31 @@
+.organize-admin-notices:not(.active) > *:not(.toggle) {
+	display: none !important;
+}
+
+.organize-admin-notices button.toggle {
+	align-items: center;
+	background: #fff;
+	display: flex;
+	float: right;
+}
+
+.organize-admin-notices button.toggle::after {
+	background: #72777c;
+	border-radius: 50%;
+	color: #fff;
+	content: attr(data-notice-count);
+	display: inline-block;
+	font-size: 0.8em;
+	height: 12px;
+	margin-left: 5px;
+	padding: 2px;
+	width: 12px;
+	line-height: 1;
+	font-weight: bold;
+}
+
+.organize-admin-notices .notice,
+.organize-admin-notices div.updated,
+.organize-admin-notices div.error {
+	margin-left: 2px;
+}
