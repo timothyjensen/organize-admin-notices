@@ -10,6 +10,10 @@
 	function maybeRenderNoticesToggle() {
 		var notices = $noticesWrapper.children();
 
+		notices = notices.filter( function( index, notice ) {
+			return ! $( notice ).is( ':empty' );
+		} );
+
 		if ( ! notices.length ) {
 			return;
 		}
