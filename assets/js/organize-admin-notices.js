@@ -1,29 +1,32 @@
-;(function( $ ) {
+;( function( $ ) {
+	var $noticesWrapper;
 
 	function repositionNotices() {
 		var notices = $( 'div.updated, div.error, div.notice' ).not( '.inline, .below-h2' );
 
-		notices.detach().appendTo('.organize-admin-notices');
+		notices.detach().appendTo( $noticesWrapper );
 	}
 
 	function maybeRenderNoticesToggle() {
-		var notices = $('.organize-admin-notices').children();
+		var notices = $noticesWrapper.children();
 
-		if (! notices.length) {
+		if ( ! notices.length ) {
 			return;
 		}
 
-		$('.organize-admin-notices').prepend('<button type="button" class="button toggle" data-notice-count="' + notices.length + '">Toggle Notices</button><div class="clear"></div>');
+		$noticesWrapper.prepend( '<button type="button" class="button toggle" data-notice-count="' + notices.length + '">Toggle Notices</button><div class="clear"></div>' );
 
-		$('.organize-admin-notices > button.toggle').on('click', function() {
-			$('.organize-admin-notices').toggleClass('active');
-		})
+		$( 'button.toggle', $noticesWrapper ).on( 'click', function() {
+			$noticesWrapper.toggleClass( 'active' );
+		} );
 	}
 
 	function init() {
+		$noticesWrapper = $( '.organize-admin-notices' );
+
 		repositionNotices();
 		maybeRenderNoticesToggle();
 	}
 
-	$(document).ready(init);
+	$( document ).ready( init );
 } )( jQuery );
