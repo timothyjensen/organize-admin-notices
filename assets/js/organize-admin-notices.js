@@ -4,7 +4,7 @@
 	var $noticesWrapper;
 
 	/**
-	 * Wrapps all elements found between the opening and closing elements. Aborts
+	 * Wraps all elements found between the opening and closing elements. Aborts
 	 * if the opening and/or closing elements are not found.
 	 *
 	 * @param {string} wrapperClass
