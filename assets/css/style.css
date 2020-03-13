@@ -1,18 +1,25 @@
-.organize-admin-notices:not(.active) > *:not(.toggle) {
+.organize-admin-notices:not(.active) > * {
 	display: none !important;
 }
 
-.organize-admin-notices button.toggle {
+.organize-admin-notices__toggle.organize-admin-notices__toggle {
 	align-items: center;
 	background: #fff;
-	border: 1px solid #ccd0d4;
 	border-radius: 0 0 4px 4px;
+	border: 1px solid #ccd0d4;
+	border-top: none;
+	box-shadow: 0 0 0 transparent;
 	color: #72777c;
 	display: flex;
-	float: right;
+	float: left;
+	height: auto;
+	line-height: 1.7;
+	margin-bottom: 0;
+	padding: 3px 6px 3px 16px;
+	transition: box-shadow 0.1s linear;
 }
 
-.organize-admin-notices button.toggle::after {
+.organize-admin-notices__toggle::after {
 	background: #72777c;
 	border-radius: 50%;
 	color: #fff;
@@ -20,7 +27,7 @@
 	display: inline-block;
 	font-size: 0.8em;
 	height: 12px;
-	margin-left: 5px;
+	margin-left: 6px;
 	padding: 2px;
 	width: 12px;
 	line-height: 1;

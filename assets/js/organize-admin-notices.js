@@ -17,7 +17,7 @@
 			return;
 		}
 
-		$open.nextUntil( $close ).wrapAll( '<div class="' + wrapperClass + '" />' );
+		$open.nextUntil( $close ).addBack().wrapAll( '<div class="' + wrapperClass + '" />' );
 
 		$open.remove();
 		$close.remove();
@@ -40,9 +40,9 @@
 			return;
 		}
 
-		$noticesWrapper.prepend( '<button type="button" class="button toggle" data-notice-count="' + notices.length + '">Toggle Notices</button><div class="clear"></div>' );
+		$( '#screen-meta-links' ).prepend( '<button type="button" class="button organize-admin-notices__toggle" id="organize-admin-notices__toggle" data-notice-count="' + notices.length + '">Notices</button>' );
 
-		$( 'button.toggle', $noticesWrapper ).on( 'click', function() {
+		$( '#organize-admin-notices__toggle' ).on( 'click', function() {
 			$noticesWrapper.toggleClass( 'active' );
 		} );
 	}

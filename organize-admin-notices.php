@@ -11,7 +11,7 @@
  * Plugin Name: Organize Admin Notices
  * Plugin URI:  https://github.com/timothyjensen/organize-admin-notices
  * Description: Organizes admin notices for a cleaner administrative experience.
- * Version:     0.1.2
+ * Version:     0.1.3
  * Author:      Tim Jensen
  * Author URI:  https://www.timjensen.us
  * Text Domain: organize-admin-notices
