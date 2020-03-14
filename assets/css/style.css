@@ -34,6 +34,10 @@
 	font-weight: bold;
 }
 
+.organize-admin-notices.active {
+	clear: both;
+}
+
 .organize-admin-notices .notice,
 .organize-admin-notices div.updated,
 .organize-admin-notices div.error {
