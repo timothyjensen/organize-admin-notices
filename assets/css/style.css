@@ -17,6 +17,8 @@
 	margin-bottom: 0;
 	padding: 3px 6px 3px 16px;
 	transition: box-shadow 0.1s linear;
+	position: relative;
+	z-index: 2;
 }
 
 .organize-admin-notices__toggle::after {
