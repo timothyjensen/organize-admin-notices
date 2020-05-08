@@ -3,26 +3,6 @@
 
 	var $noticesWrapper;
 
-	/**
-	 * Wraps all elements found between the opening and closing elements. Aborts
-	 * if the opening and/or closing elements are not found.
-	 *
-	 * @param {string} wrapperClass
-	 */
-	function renderNoticesWrapper( wrapperClass ) {
-		var $open  = $( '#organize-admin-notices--open' );
-		var $close = $( '#organize-admin-notices--close' );
-
-		if ( ! $open.length || ! $close.length ) {
-			return;
-		}
-
-		$open.nextUntil( $close ).addBack().wrapAll( '<div class="' + wrapperClass + '" />' );
-
-		$open.remove();
-		$close.remove();
-	}
-
 	function repositionNotices() {
 		var notices = $( 'div.updated, div.error, div.notice' ).not( '.inline, .below-h2' );
 
@@ -48,11 +28,7 @@
 	}
 
 	function init() {
-		var wrapperClass = 'organize-admin-notices';
-
-		renderNoticesWrapper( wrapperClass );
-
-		$noticesWrapper = $( '.' + wrapperClass );
+		$noticesWrapper = $( '#organize-admin-notices' );
 
 		if ( ! $noticesWrapper.length ) {
 			return;

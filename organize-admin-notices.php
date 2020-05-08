@@ -11,7 +11,7 @@
  * Plugin Name: Organize Admin Notices
  * Plugin URI:  https://github.com/timothyjensen/organize-admin-notices
  * Description: Organizes admin notices for a cleaner administrative experience.
- * Version:     0.1.4
+ * Version:     0.2.0
  * Author:      Tim Jensen
  * Author URI:  https://www.timjensen.us
  * Text Domain: organize-admin-notices
@@ -40,30 +40,38 @@ function enqueue_assets() {
 		'organize-admin-notices-css',
 		plugins_url( 'assets/css/style.css', ORGANIZE_ADMIN_NOTICES ),
 		[],
-		'0.1.2'
+		'0.2.0'
 	);
 
 	wp_enqueue_script(
 		'organize-admin-notices',
 		plugins_url( 'assets/js/organize-admin-notices.js', ORGANIZE_ADMIN_NOTICES ),
 		[ 'jquery', 'common' ],
-		'0.1.2',
+		'0.2.0',
 		true
 	);
 }
 
-add_action( 'admin_notices', __NAMESPACE__ . '\\wrap_notices_open', PHP_INT_MIN );
+add_action( 'network_admin_notices', __NAMESPACE__ . '\\wrap_notices_open', -1440 );
+add_action( 'user_admin_notices', __NAMESPACE__ . '\\wrap_notices_open', -1440 );
+add_action( 'admin_notices', __NAMESPACE__ . '\\wrap_notices_open', -1440 );
 /**
- * Renders the start element for the notices wrapper that is injected via JavaScript.
+ * Renders the start element for the notices wrapper.
  */
 function wrap_notices_open() {
-	echo '<div id="organize-admin-notices--open"></div>';
+	static $has_run = null;
+
+	if ( $has_run ) {
+		return;
+	}
+
+	echo '<div id="organize-admin-notices" class="organize-admin-notices">';
 }
 
-add_action( 'admin_notices', __NAMESPACE__ . '\\wrap_notices_close', PHP_INT_MAX );
+add_action( 'all_admin_notices', __NAMESPACE__ . '\\wrap_notices_close', 1440 );
 /**
- * Renders the ending element for the notices wrapper that is injected via JavaScript.
+ * Renders the ending element for the notices wrapper.
  */
 function wrap_notices_close() {
-	echo '<div id="organize-admin-notices--close"></div>';
+	echo '</div>';
 }
