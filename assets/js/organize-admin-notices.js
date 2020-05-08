@@ -13,7 +13,7 @@
 		var notices = $noticesWrapper.children();
 
 		notices = notices.filter( function( index, notice ) {
-			return ! $( notice ).is( ':empty' );
+			return ! $( notice ).is( ':empty, script' );
 		} );
 
 		if ( ! notices.length ) {
