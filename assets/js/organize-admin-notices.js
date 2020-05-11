@@ -10,6 +10,11 @@
 	}
 
 	function maybeRenderNoticesToggle() {
+		// Other plugins (e.g., WooCommerce) already hide notices.
+		if ( ! $( $noticesWrapper ).is( ':visible' ) ) {
+			return;
+		}
+
 		var notices = $noticesWrapper.children();
 
 		notices = notices.filter( function( index, notice ) {
